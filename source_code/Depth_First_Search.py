@@ -37,4 +37,5 @@ start_point = find_start(maze)  # Use the integer array 'maze'
 goal_point = find_goal(maze)
 
 # Assuming start and goal are correctly defined elsewhere, or using hard-coded values for example:
-plot_path(maze, start_point, goal_point)  # Ensure 'start_point' and 'goal' are correctly determined
+plot_path(maze, start_point, goal_point, solution_path,
+          traversed)  # Ensure 'start_point' and 'goal' are correctly determined

@@ -53,23 +53,24 @@ def find_goal(maze):
     return None
 
 
-def update_maze_with_path(maze, path, traversed, start_point, goal_point):
+def update_maze_with_path(maze, path, traversed, maze_start_point, maze_goal_point):
+    new_maze = maze.copy()
     for position in traversed:
-        if position != start_point and position != goal_point:
-            maze[position[0], position[1]] = 6  # Mark traversed positions
+        if position != maze_start_point and position != maze_goal_point:
+            new_maze[position[0], position[1]] = 6  # Mark traversed positions
     for position in path:
-        if position != start_point and position != goal_point:
-            maze[position[0], position[1]] = 4  # Ensure path is marked last
-    return maze
+        if position != maze_start_point and position != maze_goal_point:
+            new_maze[position[0], position[1]] = 4  # Ensure path is marked last
+    return new_maze
 
 
-def plot_path(maze, start, goal, path, traversed):
-    if start and goal:
-        if path:
-            updated_maze = update_maze_with_path(maze.copy(), path, traversed)
-            plot_maze(updated_maze, "Breadth first search: Solution path")
-            print("Path:", path)
-        else:
-            print("No path found.")
-    else:
-        print("No start point found.")
+# def plot_path(maze, start, goal, path, traversed):
+#     if start and goal:
+#         if path:
+#             updated_maze = update_maze_with_path(maze.copy(), path, traversed)
+#             plot_maze(updated_maze, "Breadth first search: Solution path")
+#             print("Path:", path)
+#         else:
+#             print("No path found.")
+#     else:
+#         print("No start point found.")

@@ -1,6 +1,7 @@
 from FIFO_class import Fifo
 from Helpers import get_path, is_legal_pos, offsets
 
+
 # Code based on (Andrews, 2023)
 def bfs(maze, start, goal):
     queue = Fifo()
