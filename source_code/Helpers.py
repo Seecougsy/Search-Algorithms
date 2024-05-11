@@ -53,7 +53,7 @@ def find_goal(maze):
     return None
 
 
-def update_maze_with_path(maze, path, traversed, goal_point, start_point):
+def update_maze_with_path(maze, path, traversed, start_point, goal_point):
     for position in traversed:
         if position != start_point and position != goal_point:
             maze[position[0], position[1]] = 6  # Mark traversed positions
