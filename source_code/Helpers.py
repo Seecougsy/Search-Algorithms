@@ -1,11 +1,14 @@
 import numpy as np
 
+from Visualisations import plot_maze
+
 offsets = {
     "right": (0, 1),
     "left": (0, -1),
     "up": (-1, 0),
     "down": (1, 0)
 }
+
 
 # Get path code based on (Andrews, 2023)
 def is_legal_pos(maze, pos):
@@ -50,3 +53,23 @@ def find_goal(maze):
     return None
 
 
+def update_maze_with_path(maze, path, traversed, goal_point, start_point):
+    for position in traversed:
+        if position != start_point and position != goal_point:
+            maze[position[0], position[1]] = 6  # Mark traversed positions
+    for position in path:
+        if position != start_point and position != goal_point:
+            maze[position[0], position[1]] = 4  # Ensure path is marked last
+    return maze
+
+
+def plot_path(maze, start, goal, path, traversed):
+    if start and goal:
+        if path:
+            updated_maze = update_maze_with_path(maze.copy(), path, traversed)
+            plot_maze(updated_maze, "Breadth first search: Solution path")
+            print("Path:", path)
+        else:
+            print("No path found.")
+    else:
+        print("No start point found.")

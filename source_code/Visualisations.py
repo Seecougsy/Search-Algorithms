@@ -4,7 +4,8 @@ from Depth_First_Search import dfs
 
 
 def plot_maze(maze, title="Maze"):
-    colors = ['#F5F5F5', '#32424A', '#801515', '#27566B', '#55AA55']  # Background, walls, start, end, path
+    # Colors: Background, walls, start, end, path, traversed path
+    colors = ['#F5F5F5', '#32424A', '#801515', '#27566B', '#55AA55', '#FFD700']  # Adding gold for traversed path
     cmap = ListedColormap(colors)
     norm = Normalize(vmin=0, vmax=len(colors) - 1)
     fig, ax = plt.subplots(figsize=(5, 5))
@@ -14,10 +15,10 @@ def plot_maze(maze, title="Maze"):
     plt.show()
 
 
-def update_maze_with_path(maze, path):
-    for position in path:
-        maze[position[0], position[1]] = 4  # Mark path positions with 4
-    return maze
+# def update_maze_with_path(maze, path):
+#     for position in path:
+#         maze[position[0], position[1]] = 4  # Mark path positions with 4
+#     return maze
 
 
 def plot_path(maze, start, goal):

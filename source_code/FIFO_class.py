@@ -1,32 +1,23 @@
-class FIFO:
-
-    # constructor method
+from collections import deque
+class Fifo:
     def __init__(self):
-        self.items = []
+        self.items = deque()
 
-    # check if stack is empty
     def is_empty(self):
-        return not self.items #<-- so as not to return bool
+        return not self.items
+        # return len(self.items) == 0
 
-    # add items to the list
-    def push(self, item):
+    def enqueue(self, item):
         self.items.append(item)
 
-    # removes the last item and returns the value
-    def pop(self):
-        return self.items.pop()
+    def dequeue(self):
+        return self.items.popleft()
 
-    # shows list item in list
-    def peek(self):
-        return self.items[-1]
-
-    # size of list
     def size(self):
         return len(self.items)
 
-    def fifo_pop(self):
-        return self.items.pop(0)
+    def peek(self):
+        return self.items[0]
 
-    # turns obj into string
     def __str__(self):
         return str(self.items)
