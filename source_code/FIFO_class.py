@@ -1,3 +1,7 @@
+
+''' This class holds the queue functionalirty for BFS
+    This code is modified (Andrews, 2023)
+'''
 from collections import deque
 class Fifo:
     def __init__(self):
@@ -8,10 +12,11 @@ class Fifo:
         # return len(self.items) == 0
 
     def enqueue(self, item):
-        self.items.append(item)
+        self.items.append(item) # <-- appends items passed
+
 
     def dequeue(self):
-        return self.items.popleft()
+        return self.items.popleft() #<-- takes item from left of qeue
 
     def size(self):
         return len(self.items)
